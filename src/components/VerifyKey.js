@@ -8,6 +8,7 @@ const VerifyKey = () => {
   const [error, setError] = useState("");
 
   const handleInputChange = (event) => {
+    setError("");
     setKey(event.target.value);
   };
 
@@ -39,8 +40,9 @@ const VerifyKey = () => {
       </label>
       <div>
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded disabled:opacity-25"
           onClick={handleButtonClick}
+          disabled={key.length === 0}
         >
           Verify
         </button>

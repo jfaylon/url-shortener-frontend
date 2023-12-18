@@ -7,6 +7,7 @@ const GenerateUrl = () => {
   const [error, setError] = useState("");
 
   const handleInputChange = (event) => {
+    setError("");
     setUrl(event.target.value);
   };
 
@@ -41,8 +42,9 @@ const GenerateUrl = () => {
       </label>
       <div>
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded disabled:opacity-25"
           onClick={handleButtonClick}
+          disabled={url.length === 0}
         >
           Generate URL
         </button>
@@ -52,7 +54,10 @@ const GenerateUrl = () => {
         <div className="text-center">
           <h2>Generated URL:</h2>
           <pre>
-            <a href={`${window.location.origin}/${apiResult.key}`} target="_blank">
+            <a
+              href={`${window.location.origin}/${apiResult.key}`}
+              target="_blank"
+            >
               {`${window.location.origin}/${apiResult.key}`}
             </a>
           </pre>
