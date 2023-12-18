@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# url-shortener-frontend
 
-## Getting Started
+## Prerequisites
+
+### Tech Stack
+- Node.js v21.2.0
+- Next.js 14.0.4
+
+### Backend
+
+Setup the `url-shortener-backend`
+```
+https://github.com/jfaylon/url-shortener-backend
+```
+
+## Installation
+
+### Install node modules
+After cloning the repository, Go to the folder and install the modules
+
+```bash
+  npm install
+```
+OR 
+```bash
+  npm ci
+```
+
+### ADD ENVs
+Next, add your `.env` file to the root directory
+
+```
+NEXT_PUBLIC_API_URL=
+```
+
+OR
+
+You can copy the `.env.example` provided and paste it as `.env`
+
+The `.env.example` contains these:
+
+```
+NEXT_PUBLIC_API_URL=http://localhost:8000
+```
+
+Please do note that Next.js has a special handling for envs that have `NEXT_PUBLIC_` as it can be accessed in the frontend and backend of the application.
+
+
+## Running the Application
 
 First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+If you want to run in the production setup, the following needs to be done.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```
+npm run build
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+It will build the application so that when `start` is made the application is already built and ready to run. This is suitable in the production setup when the pages are not compiled on the fly.
+ls.
 
-## Learn More
+## Notes
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Tech Limitations and Possible Improvements
+- Unit and Automated testing can be implemented.
+- The application is built using the versions mentioned in the tech stack. There is no guarantee that the application may work for newer and older versions.
+- Validations can also be done in the frontend to lessen the API calls needed.
